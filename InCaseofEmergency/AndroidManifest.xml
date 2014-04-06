@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hawks.incaseofemergency"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <permission android:name="com.hawks.incaseofemergency.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.hawks.incaseofemergency.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hawks.incaseofemergency.ClientServer"
+            android:label="@string/title_activity_client_server" >
+            <intent-filter>
+                <action android:name="com.hawks.incaseofemergency.CLIENTSERVER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".MyReceiver">
+    		<intent-filter>
+		        <action android:name="android.intent.action.SCREEN_OFF"></action>
+		        <action android:name="android.intent.action.SCREEN_ON"></action>
+		        <action android:name="android.intent.action.ACTION_POWER_CONNECTED"></action>
+		        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"></action>
+		         <action android:name="android.intent.action.ACTION_SHUTDOWN"></action>
+    		</intent-filter>
+	</receiver>
+        <activity
+            android:name="com.hawks.incaseofemergency.Contacts"
+            android:label="@string/title_activity_contacts" >
+            <intent-filter>
+                <action android:name="com.hawks.incaseofemergency.CONTACTS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
